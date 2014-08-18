@@ -1,0 +1,14 @@
+{
+  "name": "ember-blog",
+  "private": true,
+  "dependencies": {
+    "normalize-css": "~3.0.1",
+    "jquery": "~1.11.0",
+    "ember": "~1.5.1",
+    "ember-data": "~0.0.14"
+  },
+  "devDependencies": {},
+  "resolutions": {
+    "ember": "~1.0.0"
+  }
+}

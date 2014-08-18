@@ -1,0 +1,72 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ember-blog</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+</head>
+<body>
+    <script type="text/x-handlebars" id="application">
+        <div id="mainArea">
+            <h1>Ember.js in Action Blog</h1>
+
+            {{outlet}}
+        </div>
+    </script>
+
+    <script type="text/x-handlebars" id="blog/index">
+        <div id="blogsArea">
+            {{#each controller}}
+            <h1>{{postTitle}}</h1>
+
+            <div class="postDate">{{formattedDate}}</div>
+            {{postLongIntro}}<br><br>
+            {{#linkTo 'blog.post' this}}Full Article ->{{/linkTo}}
+
+            <hr class="blogSeparator">
+            {{/each}}
+        </div>
+    </script>
+
+    <script type="text/x-handlebars" id="blog/post">
+        <div id="blogPostArea">
+            <div class="postDate">{{formattedDate}}</div>
+            <br>{{#linkTo 'blog.index'}}&lt; back{{/linkTo}}
+            {{markdown}}
+            <br>{{#linkTo 'blog.index'}}&lt; back{{/linkTo}}
+        </div>
+    </script>
+
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <!--<script src="bower_components/handlebars/handlebars.js"></script>
+    <script src="bower_components/ember/ember.js"></script>
+    <script src="bower_components/ember-data/ember-data.js"></script>-->
+    <script src="scripts/vendor/handlebars-1.0.0.js"></script>
+    <script src="scripts/vendor/ember-1.0.0.js"></script>
+    <script src="scripts/vendor/ember-data-beta-1.js"></script>
+    <script src="scripts/vendor/showdown.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+</body>
+</html>
